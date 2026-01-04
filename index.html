@@ -103,7 +103,7 @@
                 HOSEI UNIVERSITY VISUAL ART CIRCLE (HUVAC)
             </span>
             <h1 class="text-4xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
-                創造が交差する場所。
+                法政大学 イラスト研究会視芸
             </h1>
             <p class="text-lg md:text-xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
                 法政大学イラスト研究会視芸の現役生とOBOGによる<br>
@@ -136,7 +136,7 @@
                         一般・外部の方へ
                     </button>
                     <button class="news-filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-500 hover:text-slate-900 transition-all" data-filter="member">
-                        メンバー・OBOGへ
+                        メンバーへ
                     </button>
                 </div>
             </div>
@@ -149,10 +149,10 @@
                         <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">For Members</span>
                     </div>
                     <h4 class="font-bold text-lg text-slate-900 group-hover:text-blue-600 transition-colors">
-                        第3回OBOG展の出展者募集を開始しました
+                        第4回OBOG展の出展者募集を開始しました
                     </h4>
                     <p class="text-sm text-slate-600 mt-2 line-clamp-3">
-                        2025年秋開催予定の第3回OBOG展覧会について、出展希望者のエントリー受付を開始しました。現役生・OBOG問わず奮ってご参加ください。
+                        2026年春開催予定の第4回OBOG展覧会について、出展希望者のエントリー受付を開始しました。現役生・OBOG問わず奮ってご参加ください。
                     </p>
                 </a>
                 
@@ -200,7 +200,7 @@
             <!-- 1. Allianceの概要とミッション -->
             <div class="text-center max-w-4xl mx-auto mb-20">
                 <h2 class="text-sm font-bold text-blue-600 tracking-widest uppercase mb-2">Our Mission</h2>
-                <h3 class="text-3xl font-bold text-slate-900 mb-8">つながりを取り戻すために</h3>
+                <h3 class="text-3xl font-bold text-slate-900 mb-8">活動目的</h3>
                 <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm text-left md:text-center">
                     <p class="text-slate-700 leading-relaxed text-lg">
                         法政大学の公認サークルであるイラスト研究会視芸のOBOG有志により運営されている展覧会です。<br>
@@ -787,6 +787,35 @@
                 mobileMenu.classList.add('hidden');
                 menuBtn.innerHTML = `<i data-lucide="menu" class="w-6 h-6"></i>`;
                 lucide.createIcons();
+            });
+        });
+
+        // ニュースフィルター機能
+        const newsFilterBtns = document.querySelectorAll('.news-filter-btn');
+        const newsItems = document.querySelectorAll('.news-item');
+
+        newsFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // ボタンのスタイル切り替え
+                newsFilterBtns.forEach(b => {
+                    b.classList.remove('bg-white', 'shadow-sm', 'text-slate-900', 'font-bold');
+                    b.classList.add('text-slate-500', 'font-medium');
+                });
+                btn.classList.add('bg-white', 'shadow-sm', 'text-slate-900', 'font-bold');
+                btn.classList.remove('text-slate-500', 'font-medium');
+
+                const filterValue = btn.getAttribute('data-filter');
+                
+                newsItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        // フェードインアニメーション用（簡易）
+                        item.style.opacity = '0';
+                        setTimeout(() => item.style.opacity = '1', 50);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             });
         });
     </script>
