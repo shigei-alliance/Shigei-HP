@@ -323,8 +323,12 @@
 
                     <!-- 2024.03: 第0回OBOG展 -->
                     <div class="relative flex flex-col md:flex-row items-center mb-12 group"> <!-- mb-20 -> mb-12 -->
-                        <!-- 画像削除: 空のdivでスペース確保 -->
-                        <div class="hidden md:block md:w-[50%] order-1"></div>
+                        <!-- 左側：展示風景 (これだけ残す) -->
+                        <div class="hidden md:block md:w-[50%] md:pr-12 order-1">
+                            <div class="timeline-img-container h-40 w-full md:w-3/5 ml-auto">
+                                <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="展示作品" class="timeline-img">
+                            </div>
+                        </div>
                         <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow -translate-x-1/2 md:order-2 z-10 mt-6 md:mt-0"></div>
                         <!-- 右側：テキスト -->
                         <div class="ml-12 md:ml-0 md:w-[50%] md:pl-12 order-3 w-full">
@@ -338,12 +342,8 @@
 
                     <!-- 2024.10: 第1回OBOG展 -->
                     <div class="relative flex flex-col md:flex-row items-center mb-12 group"> <!-- mb-20 -> mb-12 -->
-                        <!-- 左側：展示風景 (これだけ残す) -->
-                        <div class="hidden md:block md:w-[50%] md:pr-12 order-1">
-                            <div class="timeline-img-container h-40 w-full md:w-3/5 ml-auto">
-                                <img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="展示作品" class="timeline-img">
-                            </div>
-                        </div>
+                        <!-- 画像削除: 空のdivでスペース確保 -->
+                        <div class="hidden md:block md:w-[50%] order-1"></div>
                         <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-blue-300 rounded-full border-2 border-white shadow -translate-x-1/2 md:order-2 z-10 mt-2 md:mt-0"></div>
                         <div class="ml-12 md:ml-0 md:w-[50%] md:pl-12 order-3 w-full">
                             <span class="text-blue-600 font-bold text-lg">2024.10</span>
@@ -365,12 +365,14 @@
                     </div>
 
                     <!-- 2025.10: 第3回OBOG展 -->
-                    <div class="relative flex flex-col md:flex-row items-center mb-16 group opacity-70 hover:opacity-100 transition-opacity"> <!-- mb-24 -> mb-16 -->
-                         <div class="hidden md:block md:w-[50%] order-1"></div>
-                        <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-blue-200 rounded-full border-2 border-white shadow -translate-x-1/2 md:order-2 z-10 mt-1 md:mt-0"></div>
+                    <div class="relative flex flex-col md:flex-row items-center mb-12 group"> <!-- mb-20 -> mb-12 -->
+                        <!-- 画像削除: 空のdivでスペース確保 -->
+                        <div class="hidden md:block md:w-[50%] order-1"></div>
+                        <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-blue-300 rounded-full border-2 border-white shadow -translate-x-1/2 md:order-2 z-10 mt-2 md:mt-0"></div>
                         <div class="ml-12 md:ml-0 md:w-[50%] md:pl-12 order-3 w-full">
-                            <span class="text-slate-500 font-bold text-lg">2025.10</span>
-                            <h4 class="font-bold text-slate-700 text-lg">第3回 OBOG展覧会</h4>
+                            <span class="text-blue-600 font-bold text-lg">2025.10</span>
+                            <h4 class="font-bold text-slate-800 text-xl">第3回 OBOG展覧会</h4>
+                            <p class="text-sm text-slate-500 mt-1">規模を拡大して開催。</p>
                         </div>
                     </div>
 
