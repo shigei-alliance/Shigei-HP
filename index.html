@@ -17,6 +17,68 @@
                 radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.15) 0%, transparent 40%);
         }
+        
+/* ヒーローセクションのアニメーション背景 */
+        .hero-bg {
+            background-color: #0f172a; /* slate-900 base */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.8;
+            animation: blob-bounce 10s infinite ease-in-out alternate;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 60vw;
+            height: 60vw;
+            background: #ec4899; /* Pink */
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 60vw;
+            height: 60vw;
+            background: #06b6d4; /* Cyan */
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            bottom: 20%;
+            left: 20%;
+            width: 50vw;
+            height: 50vw;
+            background: #eab308; /* Yellow */
+            animation-delay: -2s;
+            animation-duration: 15s;
+        }
+        
+        .blob-4 {
+            top: 20%;
+            right: 20%;
+            width: 40vw;
+            height: 40vw;
+            background: #8b5cf6; /* Violet */
+            animation-delay: -8s;
+            animation-duration: 12s;
+        }
+
+        @keyframes blob-bounce {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -60px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+
         /* タイムライン用のカスタムスタイル */
         .timeline-line {
             position: absolute;
@@ -98,7 +160,12 @@
 
     <!-- ヒーローセクション -->
     <section class="relative pt-32 pb-24 lg:pt-48 lg:pb-32 hero-bg overflow-hidden text-white">
-        
+          <!-- 動的背景要素 (Blobs) --> 
+        <div class="hero-blob blob-1 rounded-full mix-blend-screen filter blur-3xl"></div>
+        <div class="hero-blob blob-2 rounded-full mix-blend-screen filter blur-3xl"></div>
+        <div class="hero-blob blob-3 rounded-full mix-blend-screen filter blur-3xl"></div>
+        <div class="hero-blob blob-4 rounded-full mix-blend-screen filter blur-3xl"></div>
+
         <div class="w-full px-6 lg:px-12 relative z-10 text-center">
             <span class="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white text-xs font-semibold mb-6 tracking-wider">
                 法政大学 イラスト研究会視芸 コミュニティ
@@ -112,10 +179,10 @@
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#information" class="inline-flex justify-center items-center px-8 py-3 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-100 transition-all hover:-translate-y-1">
-                    最新の活動を見る
+                    最新の活動
                 </a>
                 <a href="#story" class="inline-flex justify-center items-center px-8 py-3 border border-slate-600 text-white font-medium rounded-lg hover:bg-white/10 transition-all">
-                    HUVACの歩み
+                    活動の歴史
                 </a>
             </div>
         </div>
@@ -160,11 +227,11 @@
                 <!-- ニュースカード 2 (一般向け) -->
                 <a href="news_archive.html#20251025" class="news-item block bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all border border-slate-100 group" data-category="public">
                     <div class="text-sm text-slate-500 mb-2 flex items-center justify-between">
-                        <span>2025.10.25</span>
+                        <span>2025.11.3</span>
                         <span class="text-xs font-semibold bg-green-100 text-green-700 px-2 py-0.5 rounded-full">現役活動</span>
                     </div>
                     <h4 class="font-bold text-lg text-slate-900 group-hover:text-blue-600 transition-colors">
-                        現役サークル、秋の合同展示会を無事終了
+                        現役サークルが学祭展示を開催しました。
                     </h4>
                     <p class="text-sm text-slate-600 mt-2 line-clamp-3">
                         現役生主催の「秋の合同展」が盛況のうちに終了しました。多くの方のご来場、誠にありがとうございました。
