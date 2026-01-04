@@ -103,7 +103,7 @@
                 HOSEI UNIVERSITY VISUAL ART CIRCLE (HUVAC)
             </span>
             <h1 class="text-4xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
-                世代を超え、創造が<br>交差する場所。
+                創造が交差する場所。
             </h1>
             <p class="text-lg md:text-xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
                 法政大学イラスト研究会視芸の現役生とOBOGによる<br>
@@ -180,7 +180,7 @@
         </div>
     </section>
 
-    <!-- STORY: 文脈と歴史 -->
+     <!-- STORY: 文脈と歴史 -->
     <section id="story" class="py-24 bg-slate-50 overflow-hidden">
         <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
             
@@ -196,16 +196,17 @@
                 </div>
             </div>
 
-            <!-- 2. 現役生サークルとOBOGコミュニティの紹介 -->
+            <!-- 2. 現役生サークルとOBOGコミュニティの紹介 (画像差し替え済み) -->
             <div class="mb-24">
                 <h3 class="text-2xl font-bold text-slate-900 text-center mb-12">二つの創造の源</h3>
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
                     
                     <!-- 現役生サークル紹介 -->
                     <div class="bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden">
-                        <div class="h-64 bg-green-500/10 flex items-center justify-center relative">
-                            <img src="https://placehold.co/800x600/E6FFFA/2F855A?text=Current+Circle+Image" alt="現役生サークルの活動イメージ" class="w-full h-full object-cover">
-                            <span class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">現役サークル</span>
+                        <div class="h-64 bg-green-500/10 flex items-center justify-center relative group">
+                            <img src="images/active_circle.jpg" alt="現役生サークルの活動イメージ" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.parentElement.style.backgroundColor='#d1fae5'; this.style.display='none';">
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+                            <span class="absolute top-4 left-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">現役サークル</span>
                         </div>
                         <div class="p-8 lg:p-10">
                             <h4 class="text-2xl font-bold text-green-700 mb-4">イラスト研究会 視芸 (現役生)</h4>
@@ -215,8 +216,8 @@
                             <div class="flex items-center justify-between border-t border-slate-100 pt-4">
                                 <span class="text-sm font-medium text-slate-500">主な活動拠点</span>
                                 <div class="flex gap-4 text-slate-500">
-                                    <a href="https://x.com/huvac_shigei?s=20" class="hover:text-green-600 transition-colors" title="Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                                    <a href="https://www.instagram.com/hu.shigei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="hover:text-green-600 transition-colors" title="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                                    <a href="#" class="hover:text-green-600 transition-colors" title="Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                                    <a href="#" class="hover:text-green-600 transition-colors" title="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
                                     <a href="#" class="hover:text-green-600 transition-colors" title="Web"><i data-lucide="globe" class="w-5 h-5"></i></a>
                                 </div>
                             </div>
@@ -225,9 +226,10 @@
 
                     <!-- OBOGコミュニティ紹介 -->
                     <div class="bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden">
-                        <div class="h-64 bg-blue-500/10 flex items-center justify-center relative">
-                            <img src="https://placehold.co/800x600/DBEAFE/1D4ED8?text=Alumni+Community+Image" alt="OBOGコミュニティの活動イメージ" class="w-full h-full object-cover">
-                            <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">OBOGコミュニティ</span>
+                        <div class="h-64 bg-blue-500/10 flex items-center justify-center relative group">
+                            <img src="images/obog_community.jpg" alt="OBOGコミュニティの活動イメージ" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.parentElement.style.backgroundColor='#dbeafe'; this.style.display='none';">
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+                            <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">OBOGコミュニティ</span>
                         </div>
                         <div class="p-8 lg:p-10">
                             <h4 class="text-2xl font-bold text-blue-700 mb-4">Visual Art Circle (HUVAC) OBOG有志</h4>
@@ -262,7 +264,7 @@
                     <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 -ml-[1px]"></div>
 
                     <!-- 2008: 発足 -->
-                    <div class="relative flex flex-col md:flex-row items-center mb-20 group">
+                    <div class="relative flex flex-col md:flex-row items-center mb-12 group"> <!-- mb-20 -> mb-12 -->
                         <div class="ml-12 md:ml-0 md:w-[50%] md:pr-12 md:text-right order-1 w-full">
                             <div class="inline-block p-6 bg-green-50 rounded-xl border border-green-100 shadow-sm w-full md:w-auto">
                                 <span class="text-green-600 font-bold text-xl block">2008</span>
@@ -276,7 +278,7 @@
                     </div>
 
                     <!-- 2018: 10周年 -->
-                    <div class="relative flex flex-col md:flex-row items-center mb-20 group">
+                    <div class="relative flex flex-col md:flex-row items-center mb-12 group"> <!-- mb-20 -> mb-12 -->
                         <div class="ml-12 md:ml-0 md:w-[50%] md:pr-12 md:text-right order-1 w-full">
                             <span class="text-green-600 font-bold text-lg">2018</span>
                             <h4 class="font-bold text-slate-800 text-xl">発足10周年</h4>
@@ -288,7 +290,7 @@
                     </div>
 
                     <!-- 2019: 名称変更 -->
-                    <div class="relative flex flex-col md:flex-row items-center mb-24 group">
+                    <div class="relative flex flex-col md:flex-row items-center mb-16 group"> <!-- mb-24 -> mb-16 -->
                         <div class="ml-12 md:ml-0 md:w-[50%] md:pr-12 md:text-right order-1 w-full">
                             <span class="text-green-600 font-bold text-lg">2019</span>
                             <h4 class="font-bold text-slate-800 text-xl">イラスト研究会視芸に変更</h4>
@@ -300,7 +302,7 @@
                     </div>
 
                     <!-- 2020: COVID-19 (分断) -->
-                    <div class="relative flex flex-col md:flex-row items-center mb-32 group">
+                    <div class="relative flex flex-col md:flex-row items-center mb-24 group"> <!-- mb-32 -> mb-24 -->
                         <!-- 中央線を点線に変更するカバー -->
                         <div class="absolute left-4 md:left-1/2 -top-8 bottom-[-3rem] w-1 bg-white z-0 -translate-x-1/2"></div>
                         <div class="absolute left-4 md:left-1/2 -top-8 bottom-[-3rem] w-0.5 border-l-2 border-dotted border-slate-300 z-0 -translate-x-1/2"></div>
@@ -320,7 +322,7 @@
                     </div>
 
                     <!-- 2024.03: 第0回OBOG展 -->
-                    <div class="relative flex flex-col md:flex-row items-center mb-20 group">
+                    <div class="relative flex flex-col md:flex-row items-center mb-12 group"> <!-- mb-20 -> mb-12 -->
                         <!-- 画像削除: 空のdivでスペース確保 -->
                         <div class="hidden md:block md:w-[50%] order-1"></div>
                         <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow -translate-x-1/2 md:order-2 z-10 mt-6 md:mt-0"></div>
@@ -335,7 +337,7 @@
                     </div>
 
                     <!-- 2024.10: 第1回OBOG展 -->
-                    <div class="relative flex flex-col md:flex-row items-center mb-20 group">
+                    <div class="relative flex flex-col md:flex-row items-center mb-12 group"> <!-- mb-20 -> mb-12 -->
                         <!-- 左側：展示風景 (これだけ残す) -->
                         <div class="hidden md:block md:w-[50%] md:pr-12 order-1">
                             <div class="timeline-img-container h-40 w-full md:w-3/5 ml-auto">
@@ -351,7 +353,7 @@
                     </div>
 
                     <!-- 2025.03: 第2回OBOG展 -->
-                    <div class="relative flex flex-col md:flex-row items-center mb-20 group">
+                    <div class="relative flex flex-col md:flex-row items-center mb-12 group"> <!-- mb-20 -> mb-12 -->
                         <!-- 画像削除: 空のdivでスペース確保 -->
                         <div class="hidden md:block md:w-[50%] order-1"></div>
                         <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-blue-300 rounded-full border-2 border-white shadow -translate-x-1/2 md:order-2 z-10 mt-2 md:mt-0"></div>
@@ -363,7 +365,7 @@
                     </div>
 
                     <!-- 2025.10: 第3回OBOG展 -->
-                    <div class="relative flex flex-col md:flex-row items-center mb-20 group">
+                    <div class="relative flex flex-col md:flex-row items-center mb-12 group"> <!-- mb-20 -> mb-12 -->
                         <div class="hidden md:block md:w-[50%] md:pr-12 order-1">
                             <div class="p-6 bg-blue-900 text-white rounded-xl ml-auto md:w-4/5 text-center flex flex-col justify-center items-center h-full border border-blue-800">
                                 <i data-lucide="sparkles" class="w-8 h-8 mb-2 text-yellow-400"></i>
@@ -382,7 +384,7 @@
                     </div>
 
                     <!-- 2026.03: 第4回OBOG展 -->
-                    <div class="relative flex flex-col md:flex-row items-center mb-24 group opacity-70 hover:opacity-100 transition-opacity">
+                    <div class="relative flex flex-col md:flex-row items-center mb-16 group opacity-70 hover:opacity-100 transition-opacity"> <!-- mb-24 -> mb-16 -->
                          <div class="hidden md:block md:w-[50%] order-1"></div>
                         <div class="absolute left-4 md:left-1/2 w-3 h-3 bg-blue-200 rounded-full border-2 border-white shadow -translate-x-1/2 md:order-2 z-10 mt-1 md:mt-0"></div>
                         <div class="ml-12 md:ml-0 md:w-[50%] md:pl-12 order-3 w-full">
@@ -437,7 +439,7 @@
         <div class="max-w-screen-2xl mx-auto px-6 lg:px-12 relative z-10">
             <div class="text-center mb-16">
                 <h2 class="text-sm font-bold text-blue-600 tracking-widest uppercase mb-2">Activity Dashboard</h2>
-                <h3 class="text-3xl font-bold text-slate-900">数字で見る熱量</h3>
+                <h3 class="text-3xl font-bold text-slate-900">数字で見る視芸</h3>
                 <p class="mt-4 text-slate-600">私たちがどれほど創作に没頭しているか、データが証明します。</p>
             </div>
 
@@ -449,7 +451,7 @@
                 </div>
                 <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all">
                     <i data-lucide="users" class="w-8 h-8 mx-auto mb-4 text-purple-600"></i>
-                    <div class="text-4xl font-bold mb-1 text-slate-900">50+</div>
+                    <div class="text-4xl font-bold mb-1 text-slate-900">100+</div>
                     <div class="text-sm text-slate-500">アクティブメンバー</div>
                 </div>
                 <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all">
@@ -459,7 +461,7 @@
                 </div>
                 <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all">
                     <i data-lucide="clock" class="w-8 h-8 mx-auto mb-4 text-orange-600"></i>
-                    <div class="text-4xl font-bold mb-1 text-slate-900">10th</div>
+                    <div class="text-4xl font-bold mb-1 text-slate-900">19th</div>
                     <div class="text-sm text-slate-500">活動継続年数</div>
                 </div>
             </div>
