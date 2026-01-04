@@ -123,17 +123,30 @@
     <!-- NEWS: お知らせ/活動報告 -->
     <section id="news" class="py-20 bg-white border-b border-slate-100">
         <div class="max-w-screen-2xl mx-auto px-6 lg:px-12">
-            <div class="text-center mb-12">
+            <div class="text-center mb-10">
                 <h2 class="text-sm font-bold text-blue-600 tracking-widest uppercase mb-2">News & Updates</h2>
-                <h3 class="text-3xl font-bold text-slate-900">最新情報</h3>
+                <h3 class="text-3xl font-bold text-slate-900 mb-6">最新情報</h3>
+                
+                <!-- タブ切り替えボタン -->
+                <div class="inline-flex bg-slate-100 p-1 rounded-lg">
+                    <button class="news-filter-btn active px-4 py-2 rounded-md text-sm font-bold text-slate-900 bg-white shadow-sm transition-all" data-filter="all">
+                        すべて
+                    </button>
+                    <button class="news-filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-500 hover:text-slate-900 transition-all" data-filter="public">
+                        一般・外部の方へ
+                    </button>
+                    <button class="news-filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-500 hover:text-slate-900 transition-all" data-filter="member">
+                        メンバー・OBOGへ
+                    </button>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- ニュースカード 1 -->
-                <a href="exhibitors.html" class="block bg-slate-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all border border-slate-100 group">
+            <div class="grid md:grid-cols-3 gap-8 transition-all" id="news-grid">
+                <!-- ニュースカード 1 (メンバー向け) -->
+                <a href="exhibitors.html" class="news-item block bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all border-l-4 border-blue-500 border-y border-r border-slate-100 group" data-category="member">
                     <div class="text-sm text-slate-500 mb-2 flex items-center justify-between">
                         <span>2025.11.01</span>
-                        <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">展覧会</span>
+                        <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">For Members</span>
                     </div>
                     <h4 class="font-bold text-lg text-slate-900 group-hover:text-blue-600 transition-colors">
                         第3回OBOG展の出展者募集を開始しました
@@ -143,8 +156,8 @@
                     </p>
                 </a>
                 
-                <!-- ニュースカード 2 -->
-                <a href="news_archive.html#20251025" class="block bg-slate-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all border border-slate-100 group">
+                <!-- ニュースカード 2 (一般向け) -->
+                <a href="news_archive.html#20251025" class="news-item block bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all border border-slate-100 group" data-category="public">
                     <div class="text-sm text-slate-500 mb-2 flex items-center justify-between">
                         <span>2025.10.25</span>
                         <span class="text-xs font-semibold bg-green-100 text-green-700 px-2 py-0.5 rounded-full">現役活動</span>
@@ -157,8 +170,8 @@
                     </p>
                 </a>
 
-                <!-- ニュースカード 3 -->
-                <a href="news_archive.html#20251010" class="block bg-slate-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all border border-slate-100 group">
+                <!-- ニュースカード 3 (メンバー向け) -->
+                <a href="news_archive.html#20251010" class="news-item block bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all border-l-4 border-purple-500 border-y border-r border-slate-100 group" data-category="member">
                     <div class="text-sm text-slate-500 mb-2 flex items-center justify-between">
                         <span>2025.10.10</span>
                         <span class="text-xs font-semibold bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full">OBOG交流</span>
@@ -236,7 +249,7 @@
                         <div class="p-8 lg:p-10">
                             <h4 class="text-2xl font-bold text-blue-700 mb-4">Visual Art Circle (HUVAC) OBOG有志</h4>
                             <p class="text-slate-600 mb-6 leading-relaxed">
-                                卒業生・OG有志によって構成される緩やかな創作活動ネットワーク。現役生の活動支援、世代間の交流促進、そして年に数回の展覧会運営を主な活動としています。プロのクリエイターも多数在籍しています。
+                                卒業生有志によって構成される緩やかな創作活動ネットワーク。現役生の活動支援、世代間の交流促進、そして年に数回の展覧会運営を主な活動としています。プロのクリエイターも多数在籍しています。
                             </p>
                             <div class="flex items-center justify-between border-t border-slate-100 pt-4">
                                 <span class="text-sm font-medium text-slate-500">主な交流ツール</span>
