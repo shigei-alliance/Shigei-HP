@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Log | HUVAC Creative Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        /* Masonry Layout用の設定 */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        /* カードのスタイル（途切れないようにする） */
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-slate-50 antialiased">
+
+    <!-- ナビゲーションバー -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="website_template.html" class="text-xl font-bold text-slate-900 flex items-center gap-2 hover:opacity-70 transition-opacity">
+                        <div class="w-8 h-8 bg-slate-900 text-white flex items-center justify-center rounded-lg">
+                            <span class="font-bold">H</span>
+                        </div>
+                        HUVAC
+                    </a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="website_template.html" class="text-sm font-medium text-slate-500 hover:text-slate-900 flex items-center gap-1">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Topへ戻る
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ヘッダーエリア -->
+    <header class="pt-32 pb-12 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center md:text-left md:flex md:justify-between md:items-end">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Creative Stream</h1>
+                    <p class="text-slate-600 max-w-2xl">
+                        日々の創作活動、イベントの様子、制作過程のラフなどをストックしています。<br>
+                        HUVACの「今」の熱量を感じてください。
+                    </p>
+                </div>
+                
+                <!-- 投稿ボタン（メンバー用イメージ） -->
+                <div class="mt-6 md:mt-0">
+                    <button class="inline-flex items-center px-4 py-2 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors">
+                        <i data-lucide="plus" class="w-4 h-4 mr-2"></i> 活動を投稿する
+                    </button>
+                </div>
+            </div>
+
+            <!-- フィルタータグ -->
+            <div class="mt-8 flex flex-wrap gap-2 justify-center md:justify-start" id="filterContainer">
+                <button class="filter-btn active px-4 py-1.5 rounded-full text-sm font-medium bg-slate-900 text-white transition-colors" data-filter="all">すべて</button>
+                <button class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-slate-300 text-slate-600 hover:bg-slate-100 transition-colors" data-filter="works">作品 (Works)</button>
+                <button class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-slate-300 text-slate-600 hover:bg-slate-100 transition-colors" data-filter="wip">制作途中 (WIP)</button>
+                <button class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-slate-300 text-slate-600 hover:bg-slate-100 transition-colors" data-filter="event">イベント (Event)</button>
+                <button class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-slate-300 text-slate-600 hover:bg-slate-100 transition-colors" data-filter="info">お知らせ (Info)</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ (Masonry Grid) -->
+    <main class="py-8 bg-slate-50 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="masonry-grid" id="activityGrid">
+
+                <!-- Item 1: Works (縦長) -->
+                <article class="masonry-item bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-hover group cursor-pointer" data-category="works">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Artwork" class="w-full h-auto object-cover">
+                        <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded shadow">Works</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 mb-1">展覧会メインビジュアル案</h3>
+                        <p class="text-sm text-slate-500 mb-3">2025.11.15 by Design Taro</p>
+                        <p class="text-sm text-slate-700 line-clamp-2">
+                            秋展のテーマ「共鳴」をイメージして制作しました。色彩の重なりで世代の交わりを表現しています。
+                        </p>
+                        <div class="mt-3 flex items-center justify-between">
+                            <div class="flex gap-2">
+                                <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">#Illustration</span>
+                            </div>
+                            <button class="text-slate-400 hover:text-red-500 transition-colors"><i data-lucide="heart" class="w-4 h-4"></i> 12</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 2: Event (横長) -->
+                <article class="masonry-item bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-hover group cursor-pointer" data-category="event">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Event" class="w-full h-auto object-cover">
+                        <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded shadow">Event</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 mb-1">11月定例会＆クロッキー大会</h3>
+                        <p class="text-sm text-slate-500 mb-3">2025.11.10 by 運営チーム</p>
+                        <p class="text-sm text-slate-700">
+                            今月の定例会を行いました！後半は恒例のクロッキー大会。OBの〇〇さんも参加してくださり、プロの視点でのアドバイスも...！
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Item 3: WIP (画像なし・テキストのみの例) -->
+                <article class="masonry-item bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-hover group cursor-pointer" data-category="wip">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-amber-100 text-amber-700 text-xs font-bold px-2 py-1 rounded">WIP</span>
+                            <span class="text-xs text-slate-400">2025.11.08</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 mb-2">Blenderでのモデリング進捗</h3>
+                        <p class="text-sm text-slate-700 mb-4">
+                            キャラクターの素体まで完成。ここからリギングの工程に入りますが、ウェイト塗りで心が折れそうです...。誰かコツを教えてください。
+                        </p>
+                        <div class="flex items-center gap-2">
+                            <div class="w-6 h-6 rounded-full bg-slate-200 overflow-hidden">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Brian" alt="icon">
+                            </div>
+                            <span class="text-xs text-slate-500">Tech Saburo</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 4: Works (スクエア) -->
+                <article class="masonry-item bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-hover group cursor-pointer" data-category="works">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Artwork" class="w-full h-auto object-cover">
+                        <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded shadow">Works</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 mb-1">油彩 F50号「静寂」</h3>
+                        <p class="text-sm text-slate-500 mb-3">2025.11.05 by Art Master</p>
+                        <div class="mt-2 flex gap-2">
+                            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">#OilPainting</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Item 5: Info (お知らせ) -->
+                <article class="masonry-item bg-orange-50 rounded-xl shadow-sm border border-orange-100 overflow-hidden card-hover group cursor-pointer" data-category="info">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="megaphone" class="w-5 h-5 text-orange-600"></i>
+                            <span class="font-bold text-orange-800">お知らせ</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 mb-2">部室の大掃除について</h3>
+                        <p class="text-sm text-slate-700 mb-2">
+                            来週土曜日は部室の大掃除を行います。私物は一度持ち帰るようにお願いします。
+                        </p>
+                        <p class="text-xs text-slate-500 text-right">2025.11.01</p>
+                    </div>
+                </article>
+
+                <!-- Item 6: WIP (ラフ画イメージ) -->
+                <article class="masonry-item bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-hover group cursor-pointer" data-category="wip">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1599305011213-7d095405b36d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sketch" class="w-full h-auto object-cover grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+                        <span class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded shadow">WIP</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 mb-1">新刊の表紙ラフ</h3>
+                        <p class="text-sm text-slate-500 mb-3">2025.10.30 by Manga Keiko</p>
+                        <p class="text-sm text-slate-700">
+                            構図悩み中。A案とB案どっちがいいと思いますか？コメントで教えてください！
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Item 7: Event -->
+                <article class="masonry-item bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-hover group cursor-pointer" data-category="event">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Event" class="w-full h-auto object-cover">
+                        <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded shadow">Event</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 mb-1">OBOG交流会 in 飯田橋</h3>
+                        <p class="text-sm text-slate-500 mb-3">2025.10.28 by 幹事</p>
+                    </div>
+                </article>
+
+                 <!-- Item 8: Works -->
+                 <article class="masonry-item bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-hover group cursor-pointer" data-category="works">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Artwork" class="w-full h-auto object-cover">
+                        <span class="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded shadow">Works</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 mb-1">Abstract No.5</h3>
+                        <p class="text-sm text-slate-500">2025.10.20</p>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- 読み込みボタン -->
+            <div class="mt-12 text-center">
+                <button class="px-8 py-3 bg-white border border-slate-300 rounded-full text-slate-600 hover:bg-slate-50 hover:border-slate-400 transition-colors font-medium shadow-sm">
+                    もっと読み込む
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex justify-center items-center gap-2 mb-6 text-white">
+                <div class="w-6 h-6 bg-slate-800 text-white flex items-center justify-center rounded text-xs">H</div>
+                <span class="font-bold text-lg">HUVAC</span>
+            </div>
+            <p class="text-sm mb-8">
+                創作活動を通じて、新しい価値と繋がりを。<br>
+                Designed by 2025 Autumn Exhibition Committee.
+            </p>
+            <p class="text-xs text-slate-600">&copy; 2025 HUVAC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // フィルタリング機能
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const items = document.querySelectorAll('.masonry-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // ボタンのスタイル切り替え
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-slate-900', 'text-white');
+                    b.classList.add('bg-white', 'text-slate-600');
+                });
+                btn.classList.remove('bg-white', 'text-slate-600');
+                btn.classList.add('bg-slate-900', 'text-white');
+
+                const filterValue = btn.getAttribute('data-filter');
+                
+                items.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+                    if (filterValue === 'all' || itemCategory === filterValue) {
+                        item.style.display = 'inline-block'; // Masonry用にinline-blockかblock
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

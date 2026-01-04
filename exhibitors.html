@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibitor Guide | HUVAC Creative Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .hero-pattern {
+            background-color: #1e293b; /* slate-800 */
+            background-image: linear-gradient(135deg, #0f172a 25%, transparent 25%), linear-gradient(225deg, #0f172a 25%, transparent 25%), linear-gradient(45deg, #0f172a 25%, transparent 25%), linear-gradient(315deg, #0f172a 25%, transparent 25%);
+            background-position:  10px 0, 10px 0, 0 0, 0 0;
+            background-size: 20px 20px;
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-slate-50 antialiased">
+
+    <!-- ナビゲーションバー -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100">
+        <div class="w-full px-6 lg:px-12"> <!-- max-wを削除 -->
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="website_template.html" class="text-xl font-bold text-slate-900 flex items-center gap-2 hover:opacity-70 transition-opacity">
+                        <div class="w-8 h-8 bg-slate-900 text-white flex items-center justify-center rounded-lg">
+                            <span class="font-bold">H</span>
+                        </div>
+                        HUVAC
+                    </a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="website_template.html" class="text-sm font-medium text-slate-500 hover:text-slate-900 flex items-center gap-1">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Topへ戻る
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <header class="pt-32 pb-16 hero-pattern text-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-12 text-center"> <!-- max-wを拡大 -->
+            <span class="inline-block py-1 px-3 rounded-full bg-blue-500 text-white text-xs font-bold mb-4 tracking-wider">
+                RECRUITING
+            </span>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+                第3回 OBOG展覧会 出展案内
+            </h1>
+            <p class="text-lg text-slate-300 max-w-3xl mx-auto">
+                2025年秋開催。現役・OBOG問わず、皆様の力作をお待ちしております。<br>
+                必ず本ガイドラインをご確認の上、エントリーをお願いいたします。
+            </p>
+        </div>
+    </header>
+
+    <!-- 目次 -->
+    <nav class="bg-white border-b border-slate-200 sticky top-16 z-40 shadow-sm overflow-x-auto">
+        <div class="w-full px-6 lg:px-12"> <!-- max-wを削除 -->
+            <ul class="flex space-x-8 text-sm font-medium whitespace-nowrap py-4">
+                <li><a href="#schedule" class="text-slate-600 hover:text-blue-600 flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> 開催概要</a></li>
+                <li><a href="#events" class="text-slate-600 hover:text-blue-600 flex items-center gap-2"><i data-lucide="users" class="w-4 h-4"></i> イベント</a></li>
+                <li><a href="#method" class="text-slate-600 hover:text-blue-600 flex items-center gap-2"><i data-lucide="upload" class="w-4 h-4"></i> 出品方法</a></li>
+                <li><a href="#rules" class="text-slate-600 hover:text-red-600 flex items-center gap-2"><i data-lucide="alert-circle" class="w-4 h-4"></i> 重要ルール</a></li>
+                <li><a href="#entry" class="text-blue-600 font-bold flex items-center gap-2"><i data-lucide="send" class="w-4 h-4"></i> エントリー</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="w-full max-w-[1600px] mx-auto px-6 lg:px-12 py-12 space-y-24"> <!-- メインコンテナ幅を大幅に拡大 -->
+
+        <!-- 1. 開催概要・スケジュール -->
+        <section id="schedule" class="scroll-mt-32">
+            <h2 class="text-2xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">開催概要・スケジュール</h2>
+            
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-10 mb-8">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="font-bold text-lg mb-4 flex items-center gap-2"><i data-lucide="map-pin" class="w-5 h-5 text-slate-400"></i> 会場</h3>
+                        <p class="text-slate-700">
+                            <strong>九段生涯学習館 2F 九段ギャラリー</strong><br>
+                            <span class="text-sm text-slate-500">（九段下駅 すぐ）</span>
+                        </p>
+                        <div class="mt-4 bg-slate-100 rounded-lg p-4 text-sm text-slate-600">
+                            ※会場内は飲食禁止です（厳守）
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-4 flex items-center gap-2"><i data-lucide="clock" class="w-5 h-5 text-slate-400"></i> スケジュール</h3>
+                        <ul class="space-y-4 relative border-l border-slate-200 ml-2 pl-6">
+                            <li class="relative">
+                                <span class="absolute -left-[29px] top-1 w-3 h-3 bg-slate-300 rounded-full"></span>
+                                <span class="text-xs font-bold text-slate-500 block">〜10/2 (木) 23:59</span>
+                                <span class="font-bold text-slate-900">出品調査 締切</span>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-[29px] top-1 w-3 h-3 bg-blue-500 rounded-full ring-4 ring-blue-100"></span>
+                                <span class="text-xs font-bold text-blue-600 block">10/4 (土) 会期1日目</span>
+                                <span class="font-bold text-slate-900">10:00 設営開始</span><br>
+                                <span class="font-bold text-blue-600">13:00~15:00 コアタイム (推奨)</span><br>
+                                <span class="text-sm text-slate-600">各種イベント開催</span>
+                            </li>
+                            <li class="relative">
+                                <span class="absolute -left-[29px] top-1 w-3 h-3 bg-blue-500 rounded-full ring-4 ring-blue-100"></span>
+                                <span class="text-xs font-bold text-blue-600 block">10/5 (日) 会期2日目</span>
+                                <span class="font-bold text-slate-900">終日展示・撤収</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 会期中のイベント -->
+        <section id="events" class="scroll-mt-32">
+            <h2 class="text-2xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">会期中のイベント (10/4)</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- トークセッション -->
+                <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+                    <div class="inline-flex items-center justify-center w-10 h-10 bg-orange-100 text-orange-600 rounded-lg mb-4">
+                        <i data-lucide="mic" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">トークセッション</h3>
+                    <p class="text-sm text-slate-500 mb-4">15:00 ~ 16:00 (予定)</p>
+                    <p class="text-sm text-slate-600 mb-4">
+                        テーマ自由のLT大会。作品解説、推し語りなど。モニター・マイク完備。
+                    </p>
+                    <a href="#entry" class="text-xs font-bold text-blue-600 hover:underline">登壇者募集中 →</a>
+                </div>
+
+                <!-- イラスト講習会 -->
+                <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+                    <div class="inline-flex items-center justify-center w-10 h-10 bg-green-100 text-green-600 rounded-lg mb-4">
+                        <i data-lucide="pen-tool" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">イラスト講習会</h3>
+                    <p class="text-sm text-slate-500 mb-4">16:00 ~ 17:00 (予定)</p>
+                    <p class="text-sm text-slate-600 mb-4">
+                        プロ講師による添削＆Q&A。<br>
+                        <strong>講師:</strong> 飛鳥士郎氏、川島和花氏
+                    </p>
+                    <a href="#entry" class="text-xs font-bold text-blue-600 hover:underline">質問・添削希望募集中 →</a>
+                </div>
+
+                <!-- 懇親会 -->
+                <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+                    <div class="inline-flex items-center justify-center w-10 h-10 bg-purple-100 text-purple-600 rounded-lg mb-4">
+                        <i data-lucide="beer" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">懇親会</h3>
+                    <p class="text-sm text-slate-500 mb-4">18:00 ~ 20:00 (予定)</p>
+                    <p class="text-sm text-slate-600 mb-4">
+                        ギャラリー近辺にて開催。<br>
+                        予算: 4,000 ~ 6,000円程度
+                    </p>
+                    <span class="text-xs text-slate-400">LINEグループにて出欠確認</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 出品方法 -->
+        <section id="method" class="scroll-mt-32">
+            <h2 class="text-2xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">出品方法・パターン</h2>
+            
+            <p class="mb-6 text-slate-600">
+                平面・立体作品問わず出品可能です。ご自身の状況に合わせて、以下の3つのパターンから選択してください。
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-0 border border-slate-200 rounded-xl overflow-hidden divide-y md:divide-y-0 md:divide-x divide-slate-200 bg-white shadow-sm">
+                <!-- パターンA -->
+                <div class="p-8 hover:bg-slate-50 transition-colors">
+                    <div class="text-center mb-6">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Pattern A</span>
+                        <h3 class="text-xl font-bold text-slate-900">フルDIY</h3>
+                    </div>
+                    <ul class="text-sm space-y-4 mb-8">
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5"></i> 印刷：<strong>自分</strong></li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5"></i> 搬入：<strong>自分</strong> (当日持込)</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5"></i> 設置：<strong>自分</strong></li>
+                    </ul>
+                    <p class="text-xs text-slate-500">こだわりがある方、当日来場できる方におすすめ。</p>
+                </div>
+
+                <!-- パターンB -->
+                <div class="p-8 hover:bg-slate-50 transition-colors">
+                    <div class="text-center mb-6">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Pattern B</span>
+                        <h3 class="text-xl font-bold text-slate-900">設置委託</h3>
+                    </div>
+                    <ul class="text-sm space-y-4 mb-8">
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5"></i> 印刷：<strong>自分</strong></li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5"></i> 搬入：<strong>郵送/事前手渡し</strong></li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500 mt-0.5"></i> 設置：<strong>運営</strong></li>
+                    </ul>
+                    <p class="text-xs text-slate-500">作品は3/6までに運営へお渡しください。</p>
+                </div>
+
+                <!-- パターンC -->
+                <div class="p-8 bg-blue-50/50">
+                    <div class="text-center mb-6">
+                        <span class="text-xs font-bold text-blue-500 uppercase tracking-widest">Pattern C</span>
+                        <h3 class="text-xl font-bold text-blue-900">フル委託 (データ入稿)</h3>
+                    </div>
+                    <ul class="text-sm space-y-4 mb-8 text-blue-900">
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500 mt-0.5"></i> 印刷：<strong>運営代行</strong></li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500 mt-0.5"></i> 搬入：<strong>運営</strong></li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-500 mt-0.5"></i> 設置：<strong>運営</strong></li>
+                    </ul>
+                    <div class="bg-white p-4 rounded border border-blue-100 text-xs text-slate-600">
+                        <p class="font-bold mb-1 text-red-500"><i data-lucide="alert-triangle" class="w-3 h-3 inline"></i> 注意</p>
+                        データ提出期限：<strong>3/5 (前々日)</strong><br>
+                        キンコーズ印刷代が別途必要です。<br>
+                        PDFサイズと印刷サイズの一致を確認してください。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 費用について -->
+            <div class="mt-8 bg-slate-50 p-8 rounded-xl border border-slate-200">
+                <h3 class="font-bold text-lg mb-4 text-slate-800">参加費・印刷費について</h3>
+                <table class="w-full text-sm text-left">
+                    <tr class="border-b border-slate-200">
+                        <th class="py-3 pr-4 font-bold text-slate-700 w-1/4">出品料</th>
+                        <td class="py-3 text-slate-700">一律 <span class="font-bold text-lg">4,000円</span> <span class="text-xs text-slate-500">(会場費・運営費として)</span></td>
+                    </tr>
+                    <tr>
+                        <th class="py-3 pr-4 font-bold text-slate-700 w-1/4">印刷代<br><span class="text-xs font-normal">(パターンCのみ)</span></th>
+                        <td class="py-3 text-slate-700">
+                            実費請求 (キンコーズ価格準拠)<br>
+                            <span class="text-xs text-slate-500">例: A4/A3 150円, A2/B2 1,550円</span>
+                        </td>
+                    </tr>
+                </table>
+                <div class="mt-4 p-4 bg-white rounded border border-slate-200 text-sm">
+                    <strong>振込先:</strong> エントリー後にご案内します。<br>
+                    ※カンパも一口1,000円〜受け付けております（運営費・現役支援に使用します）。
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 重要ルール -->
+        <section id="rules" class="scroll-mt-32">
+            <h2 class="text-2xl font-bold text-slate-900 mb-8 border-l-4 border-red-500 pl-4">遵守していただきたいルール</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 表現規制 -->
+                <div class="flex gap-4 p-8 bg-red-50 rounded-xl border border-red-100">
+                    <div class="flex-shrink-0">
+                        <i data-lucide="eye-off" class="w-8 h-8 text-red-500"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-red-800 text-lg mb-2">表現規制について（エロ・グロNG）</h3>
+                        <p class="text-red-700 text-sm leading-relaxed">
+                            会場の九段ギャラリーは公共施設内にあり、子供も多く利用します。
+                            <strong>直接的な性描写はもちろん、肌の露出が多い作品も展示NG</strong>となる可能性があります。
+                            過去に展示不可となった事例もありますので、十分ご注意ください。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 生成AI -->
+                <div class="flex gap-4 p-8 bg-slate-50 rounded-xl border border-slate-200">
+                    <div class="flex-shrink-0">
+                        <i data-lucide="cpu" class="w-8 h-8 text-slate-500"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-2">生成AIの利用について</h3>
+                        <div class="text-slate-600 text-sm space-y-2 leading-relaxed">
+                            <p>本展覧会では、原則として<strong>出品者自身の手によって制作された作品</strong>に限ります。</p>
+                            <ul class="list-disc list-inside ml-2">
+                                <li><span class="text-red-600">NG</span>：生成AI出力物をそのまま、または加工して利用した作品</li>
+                                <li><span class="text-green-600">OK</span>：構図や配色の参考としてAIを利用し、手で描き直した作品</li>
+                            </ul>
+                            <p class="text-xs text-slate-400 mt-2">※ご不明な場合は運営チームまでご相談ください。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. エントリー (CTA) -->
+        <section id="entry" class="py-12 text-center border-t border-slate-200">
+            <h2 class="text-2xl font-bold text-slate-900 mb-8">エントリー・各種フォーム</h2>
+            <p class="text-slate-600 mb-8">
+                各フォームの締切をご確認の上、送信をお願いします。
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="#" class="inline-flex flex-col items-center justify-center px-12 py-6 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 w-full md:w-auto group">
+                    <span class="flex items-center gap-3 font-bold text-xl"><i data-lucide="file-check" class="w-6 h-6"></i> 確定出品調査</span>
+                    <span class="text-sm text-blue-100 mt-1 group-hover:text-white">締切: 10/2 (木) 23:59</span>
+                </a>
+                
+                <div class="flex flex-col gap-3 w-full md:w-auto">
+                    <a href="#" class="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-700 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors w-full">
+                        <i data-lucide="mic" class="w-5 h-5 mr-3 text-orange-500"></i> トークセッション応募
+                    </a>
+                    <a href="#" class="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-700 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors w-full">
+                        <i data-lucide="pen-tool" class="w-5 h-5 mr-3 text-green-500"></i> イラスト講習会 質問
+                    </a>
+                </div>
+            </div>
+            <p class="mt-6 text-xs text-slate-400">※リンク先はGoogle Formです</p>
+        </section>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <div class="w-full px-6 lg:px-12 text-center"> <!-- max-wを削除 -->
+            <div class="flex justify-center items-center gap-2 mb-6 text-white">
+                <div class="w-6 h-6 bg-slate-800 text-white flex items-center justify-center rounded text-xs">H</div>
+                <span class="font-bold text-lg">HUVAC</span>
+            </div>
+            <p class="text-sm mb-8">
+                運営：2025年秋 OBOG展覧会 運営チーム<br>
+                (今井、泉井、酒井)
+            </p>
+            <p class="text-xs text-slate-600">&copy; 2025 HUVAC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

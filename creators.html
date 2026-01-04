@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creators | サークル展覧会2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* モーダルのアニメーション */
+        dialog[open] {
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-slate-50 antialiased">
+
+    <!-- ナビゲーションバー (トップページと共通デザイン) -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <!-- トップページに戻るリンク -->
+                    <a href="website_template.html" class="text-xl font-bold text-slate-900 flex items-center gap-2 hover:opacity-80 transition-opacity">
+                        <div class="w-8 h-8 bg-slate-900 text-white flex items-center justify-center rounded-lg">
+                            <span class="font-bold">S</span>
+                        </div>
+                        Shigei OBOG
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <a href="website_template.html" class="text-sm font-medium text-slate-500 hover:text-slate-900 flex items-center gap-1">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Topへ戻る
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ヘッダーエリア -->
+    <header class="pt-32 pb-12 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:justify-between md:items-end">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Meet Our Creators</h1>
+                    <p class="text-slate-600 max-w-2xl">
+                        現役学生からプロフェッショナルまで。<br>
+                        多種多様なバックグラウンドを持つメンバーと、その活動状況を一覧できます。
+                    </p>
+                </div>
+                <!-- 検索ボックス -->
+                <div class="mt-6 md:mt-0 w-full md:w-72">
+                    <div class="relative">
+                        <input type="text" id="searchInput" placeholder="名前やスキルで検索..." class="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                        <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-3 top-2.5"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- フィルタータグ -->
+            <div class="mt-8 flex flex-wrap gap-2" id="filterContainer">
+                <button class="filter-btn active px-4 py-1.5 rounded-full text-sm font-medium bg-slate-900 text-white transition-colors" data-filter="all">すべて</button>
+                <button class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-slate-300 text-slate-600 hover:bg-slate-100 transition-colors" data-filter="active">現役生</button>
+                <button class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-slate-300 text-slate-600 hover:bg-slate-100 transition-colors" data-filter="obog">OBOG</button>
+                <span class="w-px h-6 bg-slate-300 mx-2 self-center"></span>
+                <button class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-slate-300 text-slate-600 hover:bg-slate-100 transition-colors" data-filter="illustration">イラスト</button>
+                <button class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-slate-300 text-slate-600 hover:bg-slate-100 transition-colors" data-filter="design">デザイン</button>
+                <button class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-slate-300 text-slate-600 hover:bg-slate-100 transition-colors" data-filter="photo">写真</button>
+                <button class="filter-btn px-4 py-1.5 rounded-full text-sm font-medium bg-white border border-slate-300 text-slate-600 hover:bg-slate-100 transition-colors" data-filter="event">イベント出展あり</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- クリエイターグリッド -->
+    <main class="py-12 bg-slate-50 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="creatorsGrid">
+                
+                <!-- Member 1: OB / Designer / Event -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-hover cursor-pointer group" onclick="openModal('member1')" data-category="obog design event" data-name="Design Taro">
+                    <div class="h-24 bg-gradient-to-r from-blue-500 to-cyan-400 relative">
+                        <div class="absolute -bottom-10 left-6">
+                             <div class="w-20 h-20 rounded-full border-4 border-white bg-slate-200 overflow-hidden">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="icon" class="w-full h-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-12 px-6 pb-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">Design Taro</h3>
+                                <p class="text-xs text-slate-500">OB (2020卒) / UI Designer</p>
+                            </div>
+                            <!-- イベントバッジ -->
+                            <span class="inline-flex items-center px-2 py-1 rounded bg-orange-100 text-orange-700 text-xs font-bold border border-orange-200">
+                                <i data-lucide="zap" class="w-3 h-3 mr-1"></i> コミティア150
+                            </span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-2">
+                            Webデザインを中心に活動中。今回の展覧会ではインタラクティブな作品を展示します。
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 rounded">#WebDesign</span>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 rounded">#UI/UX</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Member 2: Active / Illustration -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-hover cursor-pointer group" onclick="openModal('member2')" data-category="active illustration" data-name="Illust Hanako">
+                    <div class="h-24 bg-gradient-to-r from-pink-500 to-orange-400 relative">
+                        <div class="absolute -bottom-10 left-6">
+                             <div class="w-20 h-20 rounded-full border-4 border-white bg-slate-200 overflow-hidden">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" alt="icon" class="w-full h-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-12 px-6 pb-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">Illust Hanako</h3>
+                                <p class="text-xs text-slate-500">現役 (3回生) / Illustrator</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-2">
+                            厚塗りのファンタジーアートを描いています。背景美術勉強中。
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 rounded">#ConceptArt</span>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 rounded">#Background</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Member 3: OB / Photo / Event -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-hover cursor-pointer group" onclick="openModal('member3')" data-category="obog photo event" data-name="Photo Jiro">
+                    <div class="h-24 bg-gradient-to-r from-slate-700 to-slate-500 relative">
+                        <div class="absolute -bottom-10 left-6">
+                             <div class="w-20 h-20 rounded-full border-4 border-white bg-slate-200 overflow-hidden">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Midnight" alt="icon" class="w-full h-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-12 px-6 pb-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">Photo Jiro</h3>
+                                <p class="text-xs text-slate-500">OB (2018卒) / Photographer</p>
+                            </div>
+                            <span class="inline-flex items-center px-2 py-1 rounded bg-purple-100 text-purple-700 text-xs font-bold border border-purple-200">
+                                <i data-lucide="star" class="w-3 h-3 mr-1"></i> デザフェス
+                            </span>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-2">
+                            都市の夜景とストリートスナップ。写真集を販売予定です。
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 rounded">#Cityscape</span>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 rounded">#Camera</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Member 4: Active / 3D -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-hover cursor-pointer group" onclick="openModal('member4')" data-category="active design" data-name="Tech Saburo">
+                    <div class="h-24 bg-gradient-to-r from-green-500 to-emerald-400 relative">
+                        <div class="absolute -bottom-10 left-6">
+                             <div class="w-20 h-20 rounded-full border-4 border-white bg-slate-200 overflow-hidden">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Brian" alt="icon" class="w-full h-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-12 px-6 pb-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">Tech Saburo</h3>
+                                <p class="text-xs text-slate-500">現役 (2回生) / 3D Artist</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-2">
+                            Blenderでキャラクターモデリングをしています。VR作品展示予定。
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 rounded">#Blender</span>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 rounded">#VR</span>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- Member 5: OB / Illustration -->
+                 <article class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-hover cursor-pointer group" onclick="openModal('member5')" data-category="obog illustration" data-name="Manga Keiko">
+                    <div class="h-24 bg-gradient-to-r from-purple-500 to-indigo-500 relative">
+                        <div class="absolute -bottom-10 left-6">
+                             <div class="w-20 h-20 rounded-full border-4 border-white bg-slate-200 overflow-hidden">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sasha" alt="icon" class="w-full h-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-12 px-6 pb-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">Manga Keiko</h3>
+                                <p class="text-xs text-slate-500">OB (2015卒) / Manga Artist</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-2">
+                            商業誌で連載準備中。Webtoon制作スタジオにも所属しています。
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 rounded">#Manga</span>
+                            <span class="px-2 py-1 bg-slate-100 text-slate-600 rounded">#Webtoon</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- もっと見るボタン（ダミー） -->
+            <div class="mt-12 text-center">
+                <button class="px-6 py-3 border border-slate-300 rounded-lg text-slate-600 hover:bg-white hover:border-slate-400 transition-colors font-medium">
+                    さらに読み込む
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- モーダル（詳細表示用） -->
+    <dialog id="profileModal" class="p-0 rounded-2xl w-full max-w-2xl backdrop:bg-slate-900/50 shadow-2xl">
+        <div class="bg-white relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 p-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors z-10">
+                <i data-lucide="x" class="w-5 h-5 text-slate-600"></i>
+            </button>
+            
+            <div class="h-32 bg-slate-800" id="modalCover"></div>
+            
+            <div class="px-8 pb-8">
+                <div class="relative -mt-12 mb-6 flex justify-between items-end">
+                    <div class="w-24 h-24 rounded-full border-4 border-white bg-slate-200 overflow-hidden">
+                        <img src="" alt="icon" id="modalIcon" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="#" class="p-2 rounded-full border border-slate-200 text-slate-500 hover:text-blue-500 hover:border-blue-200 transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="p-2 rounded-full border border-slate-200 text-slate-500 hover:text-pink-500 hover:border-pink-200 transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="p-2 rounded-full border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-slate-400 transition-colors">
+                            <i data-lucide="globe" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-slate-900" id="modalName">Name</h2>
+                    <p class="text-slate-500" id="modalRole">Role</p>
+                </div>
+
+                <!-- イベント情報エリア -->
+                <div class="bg-orange-50 border border-orange-100 rounded-lg p-4 mb-8 flex items-start gap-3">
+                    <i data-lucide="ticket" class="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-orange-800 text-sm">イベント参加予定</h4>
+                        <p class="text-sm text-orange-700 mt-1">
+                            <span class="font-bold">コミティア150</span> - 2025/05/XX<br>
+                            スペース: 東3ホール A-24「サークル名」<br>
+                            <span class="text-xs opacity-80">新刊「〇〇の本」を頒布予定です。</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2">自己紹介</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            ここに自己紹介文が入ります。普段どのような活動をしているか、得意なジャンル、使用ツールなどを記載します。
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2">展覧会展示作品</h3>
+                        <div class="aspect-video bg-slate-100 rounded-lg flex items-center justify-center text-slate-400 text-sm">
+                            <div class="text-center">
+                                <i data-lucide="image" class="w-8 h-8 mx-auto mb-2 opacity-50"></i>
+                                作品プレビュー
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2">タイトル: 「無題」 (2025)</p>
+                    </div>
+                </div>
+
+                <div class="text-center pt-6 border-t border-slate-100">
+                    <button class="text-blue-600 font-medium hover:underline text-sm" onclick="closeModal()">
+                        閉じる
+                    </button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <script>
+        lucide.createIcons();
+
+        // フィルタリング機能
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('article');
+        const searchInput = document.getElementById('searchInput');
+
+        // タグフィルター
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // ボタンのスタイル切り替え
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-slate-900', 'text-white');
+                    b.classList.add('bg-white', 'text-slate-600');
+                });
+                btn.classList.remove('bg-white', 'text-slate-600');
+                btn.classList.add('bg-slate-900', 'text-white');
+
+                const filterValue = btn.getAttribute('data-filter');
+                filterCards(filterValue, searchInput.value);
+            });
+        });
+
+        // 検索フィルター
+        searchInput.addEventListener('input', (e) => {
+            const activeBtn = document.querySelector('.filter-btn.bg-slate-900');
+            const filterValue = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
+            filterCards(filterValue, e.target.value);
+        });
+
+        function filterCards(category, searchText) {
+            searchText = searchText.toLowerCase();
+            
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const cardName = card.getAttribute('data-name').toLowerCase();
+                
+                const matchesCategory = category === 'all' || cardCategory.includes(category);
+                const matchesSearch = cardName.includes(searchText) || cardCategory.includes(searchText);
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // モーダル制御
+        const modal = document.getElementById('profileModal');
+        
+        function openModal(memberId) {
+            // 本来はmemberIdに基づいてデータを取得・セットする
+            // ここではデモ用に画像と名前だけセット
+            const card = document.querySelector(`article[onclick="openModal('${memberId}')"]`);
+            if(card) {
+                const img = card.querySelector('img').src;
+                const name = card.querySelector('h3').innerText;
+                const role = card.querySelector('p').innerText;
+                
+                document.getElementById('modalIcon').src = img;
+                document.getElementById('modalName').innerText = name;
+                document.getElementById('modalRole').innerText = role;
+                
+                // カバー色の変更（簡易的）
+                const coverColors = ['bg-blue-500', 'bg-pink-500', 'bg-slate-600', 'bg-green-500', 'bg-purple-500'];
+                const randomColor = coverColors[Math.floor(Math.random() * coverColors.length)];
+                document.getElementById('modalCover').className = `h-32 ${randomColor}`;
+            }
+            
+            modal.showModal();
+        }
+
+        function closeModal() {
+            modal.close();
+        }
+
+        // モーダルの外側クリックで閉じる
+        modal.addEventListener('click', (e) => {
+            const rect = modal.getBoundingClientRect();
+            const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+              rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+            if (!isInDialog) {
+                modal.close();
+            }
+        });
+
+    </script>
+</body>
+</html>
