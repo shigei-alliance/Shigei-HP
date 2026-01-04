@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Archive | HUVAC Creative Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        /* ターゲットされた記事をハイライトするアニメーション */
+        @keyframes highlight {
+            0% { background-color: #f0f9ff; }
+            100% { background-color: white; }
+        }
+        :target {
+            animation: highlight 2s ease-out;
+            scroll-margin-top: 100px; /* ヘッダー分ずらす */
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-slate-50 antialiased">
+
+    <!-- ナビゲーションバー -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-slate-100">
+        <div class="w-full px-6 lg:px-12">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="website_template.html" class="text-xl font-bold text-slate-900 flex items-center gap-2 hover:opacity-70 transition-opacity">
+                        <div class="w-8 h-8 bg-slate-900 text-white flex items-center justify-center rounded-lg">
+                            <span class="font-bold">H</span>
+                        </div>
+                        HUVAC
+                    </a>
+                </div>
+                
+                <!-- PC用メニュー -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="website_template.html#news" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">NEWS</a>
+                    <a href="activities.html" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">ACTIVITY</a>
+                    <a href="website_template.html#story" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">STORY</a>
+                    <a href="website_template.html#dashboard" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">DATA</a>
+                    <a href="creators.html" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">CREATORS</a>
+                    <a href="website_template.html#information" class="bg-slate-900 text-white px-5 py-2 rounded-full hover:bg-slate-800 transition-colors text-sm shadow-sm">展覧会情報</a>
+                </div>
+
+                <!-- モバイル用メニューボタン -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- モバイル用メニュー -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="website_template.html#news" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">NEWS</a>
+                <a href="activities.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">ACTIVITY</a>
+                <a href="website_template.html#story" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">STORY</a>
+                <a href="website_template.html#dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">DATA</a>
+                <a href="creators.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">CREATORS</a>
+                <a href="website_template.html#information" class="block px-3 py-2 mt-4 text-center rounded-md text-base font-medium bg-slate-900 text-white hover:bg-slate-800">展覧会情報</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ヘッダー -->
+    <header class="pt-32 pb-12 bg-white border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">News & Updates</h1>
+            <p class="text-slate-600">
+                HUVACからの最新のお知らせ、展覧会情報、活動報告のアーカイブです。
+            </p>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="max-w-5xl mx-auto px-6 lg:px-8 py-12">
+        <div class="grid lg:grid-cols-12 gap-12">
+            
+            <!-- 記事一覧 (左側) -->
+            <div class="lg:col-span-8 space-y-8">
+
+                <!-- 記事 1 -->
+                <article id="20251101" class="bg-white rounded-xl border border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3 mb-4 text-sm">
+                        <time datetime="2025-11-01" class="text-slate-500 font-medium">2025.11.01</time>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-700">展覧会</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">
+                        第3回OBOG展の出展者募集を開始しました
+                    </h2>
+                    <div class="prose prose-slate max-w-none text-slate-600 leading-relaxed">
+                        <p>
+                            2025年秋に開催予定の「第3回 イラスト研究会視芸 OBOG展覧会」の出展者募集を開始しました。<br>
+                            今回は「共鳴」をテーマに、世代を超えた作品のコラボレーションを目指します。
+                        </p>
+                        <p class="mt-4">
+                            <strong>■ 募集要項</strong><br>
+                            対象：イラスト研究会視芸（旧：視覚芸術会）OBOG、および現役生<br>
+                            締切：2025年10月2日（木）23:59まで
+                        </p>
+                        <div class="mt-6">
+                            <a href="exhibitors.html" class="inline-flex items-center text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-bold text-sm transition-colors">
+                                エントリー詳細へ進む <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 記事 2 -->
+                <article id="20251025" class="bg-white rounded-xl border border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3 mb-4 text-sm">
+                        <time datetime="2025-10-25" class="text-slate-500 font-medium">2025.10.25</time>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700">現役活動</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">
+                        現役サークル、秋の合同展示会を無事終了
+                    </h2>
+                    <div class="prose prose-slate max-w-none text-slate-600 leading-relaxed">
+                        <p>
+                            市ヶ谷キャンパスにて開催された、現役生主催の「秋の合同展」が盛況のうちに終了しました。<br>
+                            3日間の会期で延べ300名以上の方にご来場いただきました。お越しいただいた皆様、OBOGの皆様、誠にありがとうございました。
+                        </p>
+                        <div class="mt-4 bg-slate-100 p-4 rounded-lg flex items-center gap-4">
+                            <div class="bg-slate-200 w-16 h-16 rounded flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="image" class="text-slate-400"></i>
+                            </div>
+                            <div class="text-sm">
+                                <span class="font-bold block text-slate-800">当日の様子（アルバム）</span>
+                                <a href="activities.html" class="text-blue-600 hover:underline">Activityページで写真を見る</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 記事 3 -->
+                <article id="20251010" class="bg-white rounded-xl border border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3 mb-4 text-sm">
+                        <time datetime="2025-10-10" class="text-slate-500 font-medium">2025.10.10</time>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-100 text-purple-700">OBOG交流</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">
+                        OBOG交流会 in 飯田橋 レポート
+                    </h2>
+                    <div class="prose prose-slate max-w-none text-slate-600 leading-relaxed">
+                        <p>
+                            10月8日(土)、飯田橋にてOBOG交流会を開催しました。2008年発足時の初期メンバーから今年の卒業生まで、総勢25名が集まりました。
+                        </p>
+                        <p class="mt-2">
+                            次回の展覧会に向けた熱い議論も交わされ、HUVACの絆がより一層深まる素晴らしい夜となりました。
+                        </p>
+                    </div>
+                </article>
+
+                <!-- 過去の記事（簡易表示） -->
+                <div class="border-t border-slate-200 pt-8 mt-12">
+                    <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Archive</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="#" class="group flex items-start justify-between hover:bg-slate-50 p-3 -mx-3 rounded-lg transition-colors">
+                                <div>
+                                    <h4 class="font-bold text-slate-700 group-hover:text-blue-600">夏コミ（C106）出展のお知らせ</h4>
+                                    <p class="text-xs text-slate-500 mt-1">サークル参加情報</p>
+                                </div>
+                                <span class="text-sm text-slate-400 font-mono">2025.08.01</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="group flex items-start justify-between hover:bg-slate-50 p-3 -mx-3 rounded-lg transition-colors">
+                                <div>
+                                    <h4 class="font-bold text-slate-700 group-hover:text-blue-600">サイトをリニューアルオープンしました</h4>
+                                    <p class="text-xs text-slate-500 mt-1">運営からのお知らせ</p>
+                                </div>
+                                <span class="text-sm text-slate-400 font-mono">2025.04.01</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- サイドバー (右側) -->
+            <div class="lg:col-span-4 space-y-8">
+                
+                <!-- 検索ボックス -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-4">Search</h3>
+                    <div class="relative">
+                        <input type="text" placeholder="キーワード検索..." class="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-sm">
+                        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+                    </div>
+                </div>
+
+                <!-- カテゴリ -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-4">Category</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>
+                            <a href="#" class="flex items-center justify-between text-slate-600 hover:text-blue-600 p-2 hover:bg-slate-50 rounded transition-colors">
+                                <span>すべて</span>
+                                <span class="bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full text-xs">12</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center justify-between text-slate-600 hover:text-blue-600 p-2 hover:bg-slate-50 rounded transition-colors">
+                                <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span> 展覧会</span>
+                                <span class="bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full text-xs">4</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center justify-between text-slate-600 hover:text-blue-600 p-2 hover:bg-slate-50 rounded transition-colors">
+                                <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span> 現役活動</span>
+                                <span class="bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full text-xs">5</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center justify-between text-slate-600 hover:text-blue-600 p-2 hover:bg-slate-50 rounded transition-colors">
+                                <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-purple-500"></span> OBOG交流</span>
+                                <span class="bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full text-xs">3</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 年別アーカイブ -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 mb-4">Year</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#" class="px-3 py-1 bg-slate-900 text-white text-xs font-bold rounded hover:bg-slate-700 transition-colors">2025</a>
+                        <a href="#" class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded hover:bg-slate-200 transition-colors">2024</a>
+                        <a href="#" class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded hover:bg-slate-200 transition-colors">2023</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center">
+            <div class="flex justify-center items-center gap-2 mb-6 text-white">
+                <div class="w-6 h-6 bg-slate-800 text-white flex items-center justify-center rounded text-xs">H</div>
+                <span class="font-bold text-lg">HUVAC</span>
+            </div>
+            <p class="text-sm mb-8">
+                創作活動を通じて、新しい価値と繋がりを。<br>
+                Designed by 2025 Autumn Exhibition Committee.
+            </p>
+            <p class="text-xs text-slate-600">&copy; 2025 HUVAC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // モバイルメニュー
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenu.classList.contains('hidden') ? 'menu' : 'x';
+            menuBtn.innerHTML = `<i data-lucide="${icon}" class="w-6 h-6"></i>`;
+            lucide.createIcons();
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuBtn.innerHTML = `<i data-lucide="menu" class="w-6 h-6"></i>`;
+                lucide.createIcons();
+            });
+        });
+    </script>
+</body>
+</html>
