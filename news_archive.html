@@ -39,12 +39,12 @@
                 
                 <!-- PC用メニュー -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="website_template.html#news" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">NEWS</a>
+                    <a href="index.html#news" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">NEWS</a>
+                    <a href="index.html#story" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">STORY</a>
+                    <a href="index.html#dashboard" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">DATA</a>
                     <a href="activities.html" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">ACTIVITY</a>
-                    <a href="website_template.html#story" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">STORY</a>
-                    <a href="website_template.html#dashboard" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">DATA</a>
                     <a href="creators.html" class="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">CREATORS</a>
-                    <a href="website_template.html#information" class="bg-slate-900 text-white px-5 py-2 rounded-full hover:bg-slate-800 transition-colors text-sm shadow-sm">展覧会情報</a>
+                    <a href="index.html#information" class="bg-slate-900 text-white px-5 py-2 rounded-full hover:bg-slate-800 transition-colors text-sm shadow-sm">展覧会情報</a>
                 </div>
 
                 <!-- モバイル用メニューボタン -->
@@ -59,12 +59,12 @@
         <!-- モバイル用メニュー -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full">
             <div class="px-4 pt-2 pb-4 space-y-1">
-                <a href="website_template.html#news" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">NEWS</a>
+                <a href="index.html#news" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">NEWS</a>
+                <a href="index.html#story" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">STORY</a>
+                <a href="index.html#dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">DATA</a>
                 <a href="activities.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">ACTIVITY</a>
-                <a href="website_template.html#story" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">STORY</a>
-                <a href="website_template.html#dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">DATA</a>
                 <a href="creators.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50">CREATORS</a>
-                <a href="website_template.html#information" class="block px-3 py-2 mt-4 text-center rounded-md text-base font-medium bg-slate-900 text-white hover:bg-slate-800">展覧会情報</a>
+                <a href="index.html#information" class="block px-3 py-2 mt-4 text-center rounded-md text-base font-medium bg-slate-900 text-white hover:bg-slate-800">展覧会情報</a>
             </div>
         </div>
     </nav>
@@ -81,16 +81,33 @@
 
     <!-- メインコンテンツ -->
     <main class="max-w-5xl mx-auto px-6 lg:px-8 py-12">
+        
+        <!-- フィルタータブ (New) -->
+        <div class="mb-10 pb-6 border-b border-slate-200">
+            <div class="inline-flex bg-slate-100 p-1 rounded-lg">
+                <button class="news-filter-btn active px-4 py-2 rounded-md text-sm font-bold text-slate-900 bg-white shadow-sm transition-all" data-filter="all">
+                    すべて
+                </button>
+                <button class="news-filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-500 hover:text-slate-900 transition-all" data-filter="public">
+                    一般・外部の方へ
+                </button>
+                <button class="news-filter-btn px-4 py-2 rounded-md text-sm font-medium text-slate-500 hover:text-slate-900 transition-all" data-filter="member">
+                    メンバー・OBOGへ
+                </button>
+            </div>
+        </div>
+
         <div class="grid lg:grid-cols-12 gap-12">
             
             <!-- 記事一覧 (左側) -->
-            <div class="lg:col-span-8 space-y-8">
+            <div class="lg:col-span-8 space-y-8" id="news-container">
 
-                <!-- 記事 1 -->
-                <article id="20251101" class="bg-white rounded-xl border border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
+                <!-- 記事 1 (メンバー向け) -->
+                <article id="20251101" class="news-item bg-white rounded-xl border-l-4 border-blue-500 border-y border-r border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition-all" data-category="member">
                     <div class="flex items-center gap-3 mb-4 text-sm">
                         <time datetime="2025-11-01" class="text-slate-500 font-medium">2025.11.01</time>
-                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-700">展覧会</span>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-700">For Members</span>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600">展覧会</span>
                     </div>
                     <h2 class="text-2xl font-bold text-slate-900 mb-4">
                         第3回OBOG展の出展者募集を開始しました
@@ -113,8 +130,8 @@
                     </div>
                 </article>
 
-                <!-- 記事 2 -->
-                <article id="20251025" class="bg-white rounded-xl border border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
+                <!-- 記事 2 (一般向け) -->
+                <article id="20251025" class="news-item bg-white rounded-xl border border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition-all" data-category="public">
                     <div class="flex items-center gap-3 mb-4 text-sm">
                         <time datetime="2025-10-25" class="text-slate-500 font-medium">2025.10.25</time>
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 text-green-700">現役活動</span>
@@ -139,10 +156,11 @@
                     </div>
                 </article>
 
-                <!-- 記事 3 -->
-                <article id="20251010" class="bg-white rounded-xl border border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow">
+                <!-- 記事 3 (メンバー向け) -->
+                <article id="20251010" class="news-item bg-white rounded-xl border-l-4 border-purple-500 border-y border-r border-slate-200 p-6 md:p-8 shadow-sm hover:shadow-md transition-all" data-category="member">
                     <div class="flex items-center gap-3 mb-4 text-sm">
                         <time datetime="2025-10-10" class="text-slate-500 font-medium">2025.10.10</time>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-700">For Members</span>
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-100 text-purple-700">OBOG交流</span>
                     </div>
                     <h2 class="text-2xl font-bold text-slate-900 mb-4">
@@ -162,7 +180,7 @@
                 <div class="border-t border-slate-200 pt-8 mt-12">
                     <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Archive</h3>
                     <ul class="space-y-4">
-                        <li>
+                        <li class="news-item" data-category="public">
                             <a href="#" class="group flex items-start justify-between hover:bg-slate-50 p-3 -mx-3 rounded-lg transition-colors">
                                 <div>
                                     <h4 class="font-bold text-slate-700 group-hover:text-blue-600">夏コミ（C106）出展のお知らせ</h4>
@@ -171,11 +189,11 @@
                                 <span class="text-sm text-slate-400 font-mono">2025.08.01</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#" class="group flex items-start justify-between hover:bg-slate-50 p-3 -mx-3 rounded-lg transition-colors">
+                        <li class="news-item" data-category="member">
+                            <a href="#" class="group flex items-start justify-between hover:bg-slate-50 p-3 -mx-3 rounded-lg transition-colors border-l-2 border-transparent hover:border-blue-500 pl-3">
                                 <div>
                                     <h4 class="font-bold text-slate-700 group-hover:text-blue-600">サイトをリニューアルオープンしました</h4>
-                                    <p class="text-xs text-slate-500 mt-1">運営からのお知らせ</p>
+                                    <p class="text-xs text-slate-500 mt-1">運営からのお知らせ <span class="bg-blue-100 text-blue-700 text-[10px] px-1.5 py-0.5 rounded ml-1">Member</span></p>
                                 </div>
                                 <span class="text-sm text-slate-400 font-mono">2025.04.01</span>
                             </a>
@@ -277,6 +295,34 @@
                 mobileMenu.classList.add('hidden');
                 menuBtn.innerHTML = `<i data-lucide="menu" class="w-6 h-6"></i>`;
                 lucide.createIcons();
+            });
+        });
+
+        // ニュースフィルター機能 (Topページと同じロジック)
+        const newsFilterBtns = document.querySelectorAll('.news-filter-btn');
+        const newsItems = document.querySelectorAll('.news-item');
+
+        newsFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // ボタンのスタイル切り替え
+                newsFilterBtns.forEach(b => {
+                    b.classList.remove('bg-white', 'shadow-sm', 'text-slate-900', 'font-bold');
+                    b.classList.add('text-slate-500', 'font-medium');
+                });
+                btn.classList.add('bg-white', 'shadow-sm', 'text-slate-900', 'font-bold');
+                btn.classList.remove('text-slate-500', 'font-medium');
+
+                const filterValue = btn.getAttribute('data-filter');
+                
+                newsItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        item.style.opacity = '0';
+                        setTimeout(() => item.style.opacity = '1', 50);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             });
         });
     </script>
